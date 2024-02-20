@@ -1,11 +1,12 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { App } from "@/Pages/App/App";
 import { LazyAbout } from "@/Pages/about/About.lazy";
 import { Suspense } from "react";
+import { HashRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path="*" element={<App />} />
       <Route path="App" element={<App />} />
@@ -18,5 +19,5 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         }
       />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
