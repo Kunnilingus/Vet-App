@@ -1,12 +1,14 @@
 {
   "name": "vet-app",
   "version": "1.0.0",
+  "homepage": "https://kunnilingus.github.io/Vet-App/",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
-    "start": "webpack serve --env mode=development"
+    "start": "webpack serve --env mode=development",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,7 @@
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^6.10.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "gh-pages": "^6.1.1",
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.8.0",
     "react-refresh": "^0.14.0",
