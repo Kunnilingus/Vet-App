@@ -1,11 +1,5 @@
-$btn-color: green;
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
 
-.button {
-  background-color: $btn-color;
-  padding: 20px;
-  margin-left: 5px;
-}
 
-.value {
-  font-size: 50px;
-}

@@ -9,15 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <HashRouter>
     <Routes>
       <Route path="*" element={<App />} />
-      <Route path="App" element={<App />} />
-      <Route
-        path="About"
-        element={
-          <Suspense fallback={"Loading..."}>
-            <LazyAbout />
-          </Suspense>
-        }
-      />
+      <Route path="main" element={<App />} />
     </Routes>
   </HashRouter>
 );

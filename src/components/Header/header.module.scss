@@ -1,0 +1,61 @@
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-top: 10px;
+  @include headers-font;
+}
+
+.headerPics {
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+}
+
+.firstLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 45px;
+  div {
+    display: flex;
+    align-items: center;
+  }
+  p {
+    font-size: 32px;
+    cursor: pointer;
+    &:hover {
+      color: $main-violet;
+    }
+    transition: all 0.2s ease-in;
+  }
+}
+
+.button {
+  background-color: $main-purple;
+  height: 64px;
+  width: 100px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-violet;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+}
+
+.secondLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    cursor: pointer;
+    font-size: 24px;
+    &:hover {
+      color: $main-violet;
+    }
+    transition: all 0.2s ease-in;
+  }
+}
