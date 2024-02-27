@@ -44,6 +44,12 @@
   border-radius: 15px;
   border: 2px solid $main-violet;
   box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  &:hover {
+    background-color: $main-violet;
+    color: white;
+    border: 2px solid $main-purple;
+  }
+  transition: all 0.2s ease-in;
 }
 
 .secondLine {

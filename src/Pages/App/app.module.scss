@@ -2,4 +2,162 @@
 @import "@/scss/_vars";
 @import "@/scss/_fonts";
 
+.App {
+  display: flex;
+  flex-direction: column;
+}
 
+.greeting {
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid $main-purple;
+  width: 1520px;
+  height: 550px;
+  border-radius: 20px;
+  margin-top: 50px;
+  align-self: center;
+  overflow: hidden;
+  p {
+    @include text-font;
+  }
+  h2 {
+    @include headers-font;
+  }
+}
+
+.corgie {
+  align-self: center;
+  position: absolute;
+  margin-left: 100px;
+}
+
+.block1 {
+  margin-left: 40px;
+  margin-top: 45px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+  h2 {
+    margin-bottom: 35px;
+    font-size: 24px;
+    color: $main-violet;
+    text-align: center;
+  }
+  input {
+    background-color: $main-purple50;
+    margin-bottom: 15px;
+    width: 255px;
+    height: 35px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  button {
+    margin-top: 20px;
+    background-color: $main-purple50;
+    height: 64px;
+    width: 135px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: 2px solid $main-violet50;
+    box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+    &:hover {
+      background-color: $main-violet50;
+      color: white;
+      border: 2px solid $main-purple50;
+    }
+    transition: all 0.2s ease-in;
+  }
+}
+
+.block2 {
+  border: 2px solid $main-purple;
+  background-color: $main-purple50;
+  width: 300px;
+  height: 270px;
+  border-radius: 20px;
+  margin-right: 40px;
+  margin-top: 45px;
+  span {
+    color: $main-violet;
+  }
+  h2 {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 24px;
+    color: $main-violet;
+    margin-bottom: 15px;
+  }
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+}
+
+.advantages {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 100px;
+  h1 {
+    font-size: 40px;
+  }
+}
+
+.cards {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+}
+
+.card1 {
+  border: 3px solid $main-purple;
+  background-color: $main-purple80;
+  width: 500px;
+  height: 550px;
+  border-radius: 20px;
+}
+
+.card2 {
+  width: 500px;
+  height: 550px;
+}
+
+.card3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid $main-purple;
+  background-color: $main-purple30;
+  width: 500px;
+  height: 550px;
+  border-radius: 20px;
+  overflow: hidden;
+  div {
+    position: absolute;
+    margin-bottom: 100px;
+  }
+}
+
+.card4 {
+  border: 3px solid $main-violet;
+  background-color: $main-violet80;
+  width: 500px;
+  height: 550px;
+  border-radius: 20px;
+}
+
+.card5 {
+  width: 500px;
+  height: 550px;
+}
+
+.card6 {
+  border: 3px solid $main-violet50;
+  background-color: $main-violet30;
+  width: 500px;
+  height: 550px;
+  border-radius: 20px;
+}
