@@ -1,0 +1,48 @@
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
+
+.footer {
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 300px;
+  background-color: $main-purple80;
+}
+
+.section1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 200px;
+  margin-right: 200px;
+  border-bottom: 2px solid $main-violet;
+  height: 150px;
+  div {
+    img {
+      margin-right: 5px;
+    }
+  }
+  p {
+    font-size: 32px;
+    @include headers-font;
+  }
+  span {
+    font-size: 32px;
+    color: $main-violet;
+    @include text-font;
+  }
+}
+.section2 {
+  display: flex;
+  margin-left: 200px;
+  margin-right: 200px;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  p {
+    font-size: 20px;
+    @include headers-font;
+  }
+}

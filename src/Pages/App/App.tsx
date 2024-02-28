@@ -3,6 +3,9 @@ import styles from "./app.module.scss";
 import Header from "@/components/Header/Header";
 import Corgie from "@/Assets/Коржик.png";
 import Card from "@/Assets/ВрачСГлавной.png";
+import CardPic from "@/Assets/КрестКарта.png";
+import CallForm from "@/components/CallForm/CallForm";
+import Footer from "@/components/Footer/Footer";
 
 export const App: FC = () => {
   return (
@@ -39,8 +42,25 @@ export const App: FC = () => {
       <div className={styles.advantages}>
         <h1>Наши преимущества</h1>
         <div className={styles.cards}>
-          <div className={styles.card1}></div>
-          <div className={styles.card2}></div>
+          <div className={styles.card1}>
+            <h2>О наших клиниках</h2>
+            <ul>
+              <li>Программы лояльности</li>
+              <li>Современные методы дигностики</li>
+              <li>Высокая техническая оснащённость</li>
+              <li>Квалифицированные кадры</li>
+              <li>Индивидуальный подход</li>
+              <li>Шаговая доступность</li>
+            </ul>
+            <button>Записаться на приём</button>
+          </div>
+          <div className={styles.card2}>
+            <h2>Постоянно повышаем квалификацию</h2>
+            <p>
+              Врачи сети постоянно повышают квалификацию, посещая профильные
+              образовательные мероприятия
+            </p>
+          </div>
           <div className={styles.card3}>
             <div>
               <img src={Card} alt="Card3" />
@@ -48,11 +68,34 @@ export const App: FC = () => {
           </div>
         </div>
         <div className={styles.cards}>
-          <div className={styles.card4}></div>
-          <div className={styles.card5}></div>
-          <div className={styles.card6}></div>
+          <div className={styles.card4}>
+            <h2>Удобное расположение клиник</h2>
+            <p>
+              Все клиники расположены недалеко от станций метро и остановок
+              транспора
+            </p>
+            <button>Показать адреса</button>
+          </div>
+          <div className={styles.card5}>
+            <h2>Собственные ветеринарные аптеки</h2>
+            <p>
+              Большой ассортимент ветеринарных препаратов в каждой из наших
+              аптек
+            </p>
+            <div>
+              <img src={CardPic} alt="cardPic" />
+            </div>
+          </div>
+          <div className={styles.card6}>
+            <h2>Консультируем удаленно</h2>
+            <p>Предоставляем удаленные консультации с нашими специалистами</p>
+            <span>+8 (800)-555-35-35</span>
+          </div>
         </div>
       </div>
+      <CallForm />
+      <div className={styles.map}></div>
+      <Footer/>
     </div>
   );
 };

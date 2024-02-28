@@ -1,6 +1,7 @@
 @import "@/scss/_reset";
 @import "@/scss/_vars";
 @import "@/scss/_fonts";
+@import "@/scss/_base";
 
 .App {
   display: flex;
@@ -14,7 +15,7 @@
   width: 1520px;
   height: 550px;
   border-radius: 20px;
-  margin-top: 50px;
+  margin-top: 100px;
   align-self: center;
   overflow: hidden;
   p {
@@ -29,6 +30,7 @@
   align-self: center;
   position: absolute;
   margin-left: 100px;
+  z-index: 0;
 }
 
 .block1 {
@@ -103,6 +105,7 @@
   margin-top: 100px;
   h1 {
     font-size: 40px;
+    @include headers-font;
   }
 }
 
@@ -113,16 +116,61 @@
 }
 
 .card1 {
+  display: flex;
+  flex-direction: column;
   border: 3px solid $main-purple;
   background-color: $main-purple80;
   width: 500px;
   height: 550px;
   border-radius: 20px;
+  h2 {
+    font-size: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    @include headers-font;
+  }
+  li {
+    list-style: circle;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-left: 60px;
+    @include text-font;
+  }
+  button {
+    align-self: center;
+    margin-top: 30px;
+    background-color: $main-violet80;
+    height: 64px;
+    width: 170px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: 2px solid $main-violet50;
+    box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+    &:hover {
+      background-color: $main-violet50;
+      color: white;
+      border: 2px solid $main-purple50;
+    }
+    transition: all 0.2s ease-in;
+  }
 }
 
 .card2 {
   width: 500px;
   height: 550px;
+  h2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 40px;
+    color: $main-violet;
+    @include headers-font;
+  }
+  p {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 36px;
+    @include text-font;
+  }
 }
 
 .card3 {
@@ -142,22 +190,104 @@
 }
 
 .card4 {
+  display: flex;
+  flex-direction: column;
   border: 3px solid $main-violet;
   background-color: $main-violet80;
   width: 500px;
   height: 550px;
   border-radius: 20px;
+  color: #fff;
+  h2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 40px;
+    @include headers-font;
+  }
+  p {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 36px;
+    @include text-font;
+  }
+  button {
+    align-self: center;
+    margin-top: 70px;
+    background-color: $main-purple;
+    height: 64px;
+    width: 170px;
+    font-size: 20px;
+    border-radius: 15px;
+    color: #000;
+    border: 2px solid $main-purple;
+    box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+    &:hover {
+      background-color: $main-violet50;
+      color: white;
+      border: 2px solid $main-purple50;
+    }
+    transition: all 0.2s ease-in;
+  }
 }
 
 .card5 {
+  display: flex;
+  flex-direction: column;
   width: 500px;
   height: 550px;
+  h2 {
+    color: $main-purple;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 40px;
+    @include headers-font;
+  }
+  p {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 36px;
+    @include text-font;
+  }
+  div {
+    align-self: flex-end;
+    margin-right: 70px;
+    margin-top: 50px;
+  }
 }
 
 .card6 {
+  display: flex;
+  flex-direction: column;
   border: 3px solid $main-violet50;
   background-color: $main-violet30;
   width: 500px;
   height: 550px;
   border-radius: 20px;
+  h2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 40px;
+    @include headers-font;
+  }
+  p {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 36px;
+    @include text-font;
+  }
+  span {
+    margin-top: 100px;
+    font-size: 40px;
+    color: $main-violet;
+    align-self: center;
+  }
+}
+
+.map {
+  margin-top: 100px;
+  margin-left: 200px;
+  border: 3px solid black;
+  border-radius: 20px;
+  width: 1520px;
+  height: 750px;
 }
