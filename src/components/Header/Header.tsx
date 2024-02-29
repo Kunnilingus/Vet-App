@@ -2,12 +2,14 @@ import { FC } from "react";
 import styles from "./header.module.scss";
 import Butterfly from "@/Assets/butterfly.png";
 import Phone from "@/Assets/phone.png";
+import { useNavigate } from "react-router-dom";
 
 const Header: FC = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.header}>
       <div className={styles.firstLine}>
-        <div className={styles.headerPics}>
+        <div onClick={() => navigate("/main")} className={styles.headerPics}>
           <img src={Butterfly} alt="Logo" />
         </div>
         <div>
@@ -19,8 +21,8 @@ const Header: FC = () => {
         <button className={styles.button}>Войти</button>
       </div>
       <div className={styles.secondLine}>
-        <p>Услуги</p>
-        <p>Врачи</p>
+        <p onClick={() => navigate("/services")}>Услуги</p>
+        <p onClick={() => navigate("/doctors")}>Врачи</p>
         <p>Клиники</p>
         <p>Ветаптеки</p>
         <p>Зоомагазины</p>
