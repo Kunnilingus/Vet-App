@@ -1,0 +1,40 @@
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
+@import "@/scss/_base";
+
+.container {
+  display: flex;
+  margin-right: 200px;
+  justify-content: space-between;
+  h1 {
+    font-size: 40px;
+    @include headers-font;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+}
+
+.clinicsList {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin-left: 200px;
+  h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+    @include headers-font;
+  }
+  li {
+    list-style: circle;
+    font-size: 32px;
+    margin-bottom: 50px;
+    @include text-font;
+  }
+}
+
+.clinicsImg {
+  margin-top: 100px;
+  width: 430px;
+  height: 370px;
+}

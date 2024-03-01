@@ -23,8 +23,8 @@ const Header: FC = () => {
       <div className={styles.secondLine}>
         <p onClick={() => navigate("/services")}>Услуги</p>
         <p onClick={() => navigate("/doctors")}>Врачи</p>
-        <p>Клиники</p>
-        <p>Ветаптеки</p>
+        <p onClick={() => navigate("/clinics")}>Клиники</p>
+        <p onClick={() => navigate("/pharmacy")}>Ветаптеки</p>
         <p>Зоомагазины</p>
         <p>Груминг</p>
         <p>Акции</p>
