@@ -7,6 +7,9 @@ import { LazyServices } from "./Pages/Services/Services.lazy";
 import { LazyDoctors } from "./Pages/Doctors/Doctors.lazy";
 import { LazyClinics } from "./Pages/Clinics/Clinics.lazy";
 import { LazyPharmacy } from "./Pages/Pharmacy/Pharmacy.lazy";
+import { LazyPetShops } from "./Pages/PetShops/PetShops.lazy";
+import { LazyGrooming } from "./Pages/Grooming/Grooming.lazy";
+import { LazyActions } from "./Pages/Actions/Actions.lazy";
 
 function Loading() {
   return <h2>🌀 Loading...</h2>;
@@ -45,6 +48,30 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         element={
           <Suspense fallback={Loading()}>
             <LazyPharmacy />
+          </Suspense>
+        }
+      />
+      <Route
+        path="petshops"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyPetShops />
+          </Suspense>
+        }
+      />
+      <Route
+        path="grooming"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyGrooming />
+          </Suspense>
+        }
+      />
+      <Route
+        path="actions"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyActions />
           </Suspense>
         }
       />

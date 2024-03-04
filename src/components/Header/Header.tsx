@@ -25,9 +25,9 @@ const Header: FC = () => {
         <p onClick={() => navigate("/doctors")}>Врачи</p>
         <p onClick={() => navigate("/clinics")}>Клиники</p>
         <p onClick={() => navigate("/pharmacy")}>Ветаптеки</p>
-        <p>Зоомагазины</p>
-        <p>Груминг</p>
-        <p>Акции</p>
+        <p onClick={() => navigate("/petshops")}>Зоомагазины</p>
+        <p onClick={() => navigate("/grooming")}>Груминг</p>
+        <p onClick={() => navigate("/actions")}>Акции</p>
         <p>Контакты</p>
       </div>
     </div>

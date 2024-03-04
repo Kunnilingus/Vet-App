@@ -1,0 +1,113 @@
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
+@import "@/scss/_base";
+
+.purple {
+  margin-top: 20px;
+  background-color: $main-purple;
+  height: 64px;
+  width: max-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-violet;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  &:hover {
+    background-color: $main-violet;
+    color: white;
+    border: 2px solid $main-purple;
+  }
+  transition: all 0.2s ease-in;
+}
+
+.purple50 {
+  margin-top: 20px;
+  background-color: $main-purple50;
+  height: 64px;
+  width: max-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-violet50;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  &:hover {
+    background-color: $main-violet50;
+    color: white;
+    border: 2px solid $main-purple50;
+  }
+  transition: all 0.2s ease-in;
+}
+
+.purple80 {
+  margin-top: 20px;
+  background-color: $main-purple80;
+  height: 64px;
+  width: max-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-violet80;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  &:hover {
+    background-color: $main-violet80;
+    color: white;
+    border: 2px solid $main-purple80;
+  }
+  transition: all 0.2s ease-in;
+}
+
+.violet {
+  margin-top: 20px;
+  background-color: $main-violet;
+  height: 64px;
+  width: max-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-purple;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  color: white;
+  &:hover {
+    background-color: $main-purple;
+    color: black;
+    border: 2px solid $main-violet;
+  }
+  transition: all 0.2s ease-in;
+}
+.violet50 {
+  margin-top: 20px;
+  background-color: $main-violet50;
+  height: 64px;
+  width: max-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-purple50;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  color: white;
+  &:hover {
+    background-color: $main-purple50;
+    color: black;
+    border: 2px solid $main-violet50;
+  }
+  transition: all 0.2s ease-in;
+}
+.violet80 {
+  margin-top: 20px;
+  background-color: $main-violet80;
+  height: 64px;
+  width: max-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-purple80;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  color: white;
+  &:hover {
+    background-color: $main-purple80;
+    color: black;
+    border: 2px solid $main-violet80;
+  }
+  transition: all 0.2s ease-in;
+}
