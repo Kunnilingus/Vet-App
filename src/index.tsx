@@ -10,6 +10,8 @@ import { LazyPharmacy } from "./Pages/Pharmacy/Pharmacy.lazy";
 import { LazyPetShops } from "./Pages/PetShops/PetShops.lazy";
 import { LazyGrooming } from "./Pages/Grooming/Grooming.lazy";
 import { LazyActions } from "./Pages/Actions/Actions.lazy";
+import { LazyContacts } from "./Pages/Contacts/Contacts.lazy";
+import { LazyLogin } from "./Pages/Login/Login.lazy";
 
 function Loading() {
   return <h2>🌀 Loading...</h2>;
@@ -72,6 +74,22 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         element={
           <Suspense fallback={Loading()}>
             <LazyActions />
+          </Suspense>
+        }
+      />
+      <Route
+        path="contacts"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyContacts />
+          </Suspense>
+        }
+      />
+      <Route
+        path="login"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyLogin />
           </Suspense>
         }
       />

@@ -93,7 +93,9 @@ export const App: FC = () => {
           </div>
         </div>
       </div>
-      <CallForm />
+      <div className={styles.callForm}>
+        <CallForm />
+      </div>
       <div className={styles.map}></div>
       <Footer/>
     </div>

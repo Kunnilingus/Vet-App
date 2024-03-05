@@ -18,7 +18,9 @@ const Header: FC = () => {
           </div>
           <p>8 (800)-555-35-35</p>
         </div>
-        <button className={styles.button}>Войти</button>
+        <button onClick={() => navigate("/login")} className={styles.button}>
+          Войти
+        </button>
       </div>
       <div className={styles.secondLine}>
         <p onClick={() => navigate("/services")}>Услуги</p>
@@ -28,7 +30,7 @@ const Header: FC = () => {
         <p onClick={() => navigate("/petshops")}>Зоомагазины</p>
         <p onClick={() => navigate("/grooming")}>Груминг</p>
         <p onClick={() => navigate("/actions")}>Акции</p>
-        <p>Контакты</p>
+        <p onClick={() => navigate("/contacts")}>Контакты</p>
       </div>
     </div>
   );

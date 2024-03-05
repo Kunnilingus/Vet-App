@@ -4,10 +4,10 @@ import styles from "./callForm.module.scss";
 const CallForm: FC = () => {
   return (
     <div className={styles.callForm}>
-      <h1>
+      <div className={styles.header}>
         Оставьте заявку и мы свяжемся с Вами для
         <br /> подтверждения записи
-      </h1>
+      </div>
       <input type="text" placeholder="Имя" />
       <input type="text" placeholder="+_()_ _ _-_ _-_ _" />
       <button>Отправить</button>

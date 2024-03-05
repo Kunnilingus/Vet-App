@@ -1,0 +1,42 @@
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
+@import "@/scss/_base";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  font-size: 40px;
+  @include headers-font;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.login {
+  border: 2px solid $main-purple;
+  border-radius: 10px;
+  width: 500px;
+  height: 50px;
+  font-size: 32px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.password {
+  border: 2px solid $main-violet;
+  border-radius: 10px;
+  width: 500px;
+  height: 50px;
+  font-size: 32px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.register {
+  font-size: 24px;
+  @include text-font;
+  margin-top: 25px;
+}
