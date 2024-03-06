@@ -2,10 +2,11 @@ import { FC } from "react";
 import Button from "@/components/Button/Button";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./login.module.scss";
 
 const Login: FC = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Header />
@@ -17,7 +18,7 @@ const Login: FC = () => {
           type="password"
           placeholder="Пароль"
         />
-        <Button purple50 text="Войти" />
+        <Button onClick={() => navigate("/account")} purple50 text="Войти" />
         <p className={styles.register}>
           Нет аккаунта? <Link to="/register">Зарегестрироваться</Link>
         </p>

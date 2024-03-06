@@ -4,7 +4,6 @@
 @import "@/scss/_base";
 
 .purple {
-  margin-top: 20px;
   background-color: $main-purple;
   height: 64px;
   width: max-content;
@@ -22,7 +21,6 @@
 }
 
 .purple50 {
-  margin-top: 20px;
   background-color: $main-purple50;
   height: 64px;
   width: max-content;
@@ -40,7 +38,6 @@
 }
 
 .purple80 {
-  margin-top: 20px;
   background-color: $main-purple80;
   height: 64px;
   width: max-content;
@@ -58,7 +55,6 @@
 }
 
 .violet {
-  margin-top: 20px;
   background-color: $main-violet;
   height: 64px;
   width: max-content;
@@ -76,7 +72,6 @@
   transition: all 0.2s ease-in;
 }
 .violet50 {
-  margin-top: 20px;
   background-color: $main-violet50;
   height: 64px;
   width: max-content;
@@ -94,7 +89,6 @@
   transition: all 0.2s ease-in;
 }
 .violet80 {
-  margin-top: 20px;
   background-color: $main-violet80;
   height: 64px;
   width: max-content;
@@ -108,6 +102,39 @@
     background-color: $main-purple80;
     color: black;
     border: 2px solid $main-violet80;
+  }
+  transition: all 0.2s ease-in;
+}
+.violetBorder {
+  background-color: #fff;
+  height: 64px;
+  width: max-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-violet;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  &:hover {
+    background-color: #fff;
+    color: black;
+    border: 2px solid $main-purple;
+  }
+  transition: all 0.2s ease-in;
+}
+
+.purpleBorder {
+  background-color: #fff;
+  height: 64px;
+  width: max-content;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: 2px solid $main-purple;
+  box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+  &:hover {
+    background-color: #fff;
+    color: black;
+    border: 2px solid $main-violet;
   }
   transition: all 0.2s ease-in;
 }

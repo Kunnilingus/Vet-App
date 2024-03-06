@@ -9,6 +9,9 @@ interface ButtonProps {
   violet?: boolean;
   violet50?: boolean;
   violet80?: boolean;
+  violetBorder?: boolean;
+  purpleBorder?: boolean;
+  onClick?: () => void;
 }
 const Button: FC<ButtonProps> = ({
   text,
@@ -18,8 +21,20 @@ const Button: FC<ButtonProps> = ({
   purple,
   purple50,
   purple80,
+  violetBorder,
+  purpleBorder,
+  onClick,
 }) => {
-  const arr = [violet, violet50, violet80, purple, purple50, purple80];
+  const arr = [
+    violet,
+    violet50,
+    violet80,
+    purple,
+    purple50,
+    purple80,
+    purpleBorder,
+    violetBorder,
+  ];
   const toggleClassName = () => {
     for (let item of arr) {
       switch (item) {
@@ -40,10 +55,20 @@ const Button: FC<ButtonProps> = ({
 
         case purple80 === true:
           return styles.purple80;
+
+        case violetBorder === true:
+          return styles.violetBorder;
+
+        case purpleBorder === true:
+          return styles.purpleBorder;
       }
     }
   };
-  return <button className={toggleClassName()}>{text}</button>;
+  return (
+    <button onClick={onClick} className={toggleClassName()}>
+      {text}
+    </button>
+  );
 };
 
 export default Button;

@@ -8,7 +8,7 @@ const Contacts: FC = () => {
   return (
     <div>
       <Header />
-      <h1>Контакты</h1>
+      <h1>Контакты</h1> 
       <div className={styles.container}>
         <p className={styles.number}>
           +8(800) 555-35-35

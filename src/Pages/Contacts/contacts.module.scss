@@ -21,28 +21,26 @@ h1 {
   margin-right: 200px;
   display: flex;
   flex-direction: column;
+  h2 {
+    font-size: 32px;
+    @include headers-font;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  ul {
+    font-size: 24px;
+    @include text-font;
+    li {
+      list-style: circle;
+    }
+    margin-left: 40px;
+  }
 }
 
 .info {
   margin-top: 50px;
   font-size: 24px;
   @include text-font;
-}
-
-ul {
-  font-size: 24px;
-  @include text-font;
-  li {
-    list-style: circle;
-  }
-  margin-left: 40px;
-}
-
-h2 {
-  font-size: 32px;
-  @include headers-font;
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 
 .work {

@@ -12,6 +12,7 @@ import { LazyGrooming } from "./Pages/Grooming/Grooming.lazy";
 import { LazyActions } from "./Pages/Actions/Actions.lazy";
 import { LazyContacts } from "./Pages/Contacts/Contacts.lazy";
 import { LazyLogin } from "./Pages/Login/Login.lazy";
+import { LazyAccount } from "./Pages/Account/Account.lazy";
 
 function Loading() {
   return <h2>🌀 Loading...</h2>;
@@ -90,6 +91,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         element={
           <Suspense fallback={Loading()}>
             <LazyLogin />
+          </Suspense>
+        }
+      />
+      <Route
+        path="account"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyAccount />
           </Suspense>
         }
       />
