@@ -8,8 +8,8 @@ const Contacts: FC = () => {
   return (
     <div>
       <Header />
-      <h1>Контакты</h1> 
       <div className={styles.container}>
+        <h1>Контакты</h1>
         <p className={styles.number}>
           +8(800) 555-35-35
           <br /> время работы филиалов с 10:00 до 22:00

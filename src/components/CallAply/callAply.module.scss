@@ -1,0 +1,70 @@
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
+@import "@/scss/_base";
+
+.none {
+  display: none;
+}
+
+.callAply {
+  display: flex;
+  border: 2px solid $main-violet50;
+  border-radius: 20px;
+  width: 450px;
+  height: 500px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  background-color: $main-purple;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+  transition: 0.2s all ease-in;
+}
+.close::after,
+.close::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 5px;
+  background: $main-violet;
+}
+
+.close::after {
+  transform: rotate(-45deg);
+}
+.close::before {
+  transform: rotate(45deg);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  h2 {
+    font-size: 36px;
+    @include headers-font;
+    margin-top: 50px;
+  }
+  p {
+    margin-top: 15px;
+    font-size: 24px;
+    @include text-font;
+  }
+}
+.cancel {
+  font-size: 40px;
+  @include headers-font;
+  align-self: center;
+}

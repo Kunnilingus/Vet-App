@@ -8,8 +8,8 @@ const CallForm: FC = () => {
         Оставьте заявку и мы свяжемся с Вами для
         <br /> подтверждения записи
       </div>
-      <input type="text" placeholder="Имя" />
-      <input type="text" placeholder="+_()_ _ _-_ _-_ _" />
+      <input type="text" placeholder="Имя" required />
+      <input type="text" placeholder="+_()_ _ _-_ _-_ _" required />
       <button>Отправить</button>
     </div>
   );

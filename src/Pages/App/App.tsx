@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./app.module.scss";
 import Header from "@/components/Header/Header";
 import Corgie from "@/Assets/Коржик.png";
@@ -6,8 +6,16 @@ import Card from "@/Assets/ВрачСГлавной.png";
 import CardPic from "@/Assets/КрестКарта.png";
 import CallForm from "@/components/CallForm/CallForm";
 import Footer from "@/components/Footer/Footer";
+import CallAply from "@/components/CallAply/CallAply";
+import Button from "@/components/Button/Button";
 
 export const App: FC = () => {
+  const [state, setState] = useState<boolean>(false);
+  const [cancelState, setCancelState] = useState<boolean>(true);
+  function toggleStatus() {
+    setState(false);
+    setCancelState(true);
+  }
   return (
     <div className={styles.App}>
       <Header />
@@ -18,9 +26,11 @@ export const App: FC = () => {
             <br /> и мы Вам
             <br /> перезвоним!
           </h2>
-          <input type="text" placeholder="Имя" />
-          <input type="text" placeholder="+_()_ _ _-_ _-_ _" />
-          <button>Отправить</button>
+          <input type="text" placeholder="Имя" required />
+          <input type="number" placeholder="+_()_ _ _-_ _-_ _" required />
+          <div className={styles.btnNone}>
+            <Button onClick={() => setState(true)} purple50 text="Отправить" />
+          </div>
         </div>
         <div className={styles.corgie}>
           <img src={Corgie} alt="Corgie" />
@@ -97,7 +107,30 @@ export const App: FC = () => {
         <CallForm />
       </div>
       <div className={styles.map}></div>
-      <Footer/>
+      <div className={state ? styles.callAply : styles.none}>
+        <div onClick={() => toggleStatus()} className={styles.close}></div>
+        <div className={styles.info}>
+          <div className={cancelState ? styles.infoToHide : styles.none}>
+            <h2>Вы оставили заявку!</h2>
+            <p>
+              Наш сотрудник свяжется с вами в течение часа для уточнения
+              деталей,пожалуйста ожидайте.
+            </p>
+            <p>Вы так же можете отменить заявку</p>
+          </div>
+          <div className={cancelState ? styles.none : styles.cancsellText}>
+            Заявка отменена!
+          </div>
+          <div className={styles.cancellBtn}>
+            <Button
+              onClick={() => setCancelState(false)}
+              violet
+              text="Отменить заявку"
+            />
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -53,22 +53,13 @@
     height: 35px;
     border-radius: 10px;
     text-align: center;
-  }
-  button {
-    margin-top: 20px;
-    background-color: $main-purple50;
-    height: 64px;
-    width: 135px;
-    font-size: 20px;
-    border-radius: 15px;
-    border: 2px solid $main-violet50;
-    box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
-    &:hover {
-      background-color: $main-violet50;
-      color: white;
-      border: 2px solid $main-purple50;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
     }
-    transition: all 0.2s ease-in;
+  }
+  input:invalid + .btnNone {
+    pointer-events: none;
   }
 }
 
@@ -295,4 +286,115 @@
   border-radius: 20px;
   width: 1520px;
   height: 750px;
+}
+
+.none {
+  display: none;
+}
+
+.callAply {
+  display: flex;
+  border: 2px solid $main-violet50;
+  border-radius: 20px;
+  width: 450px;
+  height: 500px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  background-color: $main-purple;
+  -webkit-animation: scale-up-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@-webkit-keyframes scale-up-right {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+  }
+}
+@keyframes scale-up-right {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+  transition: 0.2s all ease-in;
+}
+.close::after,
+.close::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 5px;
+  background: $main-violet;
+}
+
+.close::after {
+  transform: rotate(-45deg);
+}
+.close::before {
+  transform: rotate(45deg);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 36px;
+    @include headers-font;
+    margin-top: 50px;
+  }
+  p {
+    margin-top: 15px;
+    font-size: 24px;
+    @include text-font;
+  }
+}
+
+.cancellBtn {
+  position: absolute;
+  margin-top: 80%;
+  left: 31%;
+}
+
+.infoToHide {
+  display: flex;
+  flex-direction: column;
+}
+
+.cancsellText {
+  @include headers-font;
+  font-size: 40px;
+  margin-top: 50%;
+  margin-left: 40px;
 }
