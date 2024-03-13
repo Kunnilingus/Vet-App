@@ -3,6 +3,8 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import styles from "./pharmacy.module.scss";
 import pharmacy from "@/Assets/Ветаптека.jpg";
+import Ymap from "@/components/Ymap/Ymap";
+import { pharmacyCoordinates } from "@/utils/PharmacyCoordinates";
 
 const Pharmacy: FC = () => {
   return (
@@ -25,6 +27,9 @@ const Pharmacy: FC = () => {
               Рядом метро: Сухаревская
             </li>
           </ul>
+          <div className={styles.map}>
+            <Ymap array={pharmacyCoordinates} />
+          </div>
         </div>
         <div className={styles.pharmacyImg}>
           <img src={pharmacy} alt="clinics" />

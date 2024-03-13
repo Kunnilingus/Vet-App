@@ -3,6 +3,8 @@ import Header from "@/components/Header/Header";
 import { FC } from "react";
 import styles from "./clinics.module.scss";
 import clinics from "@/Assets/Клиники.png";
+import Ymap from "@/components/Ymap/Ymap";
+import { clinicsCoordinates } from "@/utils/ClinicsCoordinates";
 
 const Clinics: FC = () => {
   return (
@@ -29,6 +31,9 @@ const Clinics: FC = () => {
               Рядом метро: Сухаревская
             </li>
           </ul>
+          <div className={styles.map}>
+            <Ymap array={clinicsCoordinates} />
+          </div>
         </div>
         <div className={styles.clinicsImg}>
           <img src={clinics} alt="clinics" />

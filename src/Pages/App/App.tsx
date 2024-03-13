@@ -8,8 +8,12 @@ import CallForm from "@/components/CallForm/CallForm";
 import Footer from "@/components/Footer/Footer";
 import CallAply from "@/components/CallAply/CallAply";
 import Button from "@/components/Button/Button";
+import Ymap from "@/components/Ymap/Ymap";
+import { allCoordinates } from "@/utils/AllCoordinates";
+import { useNavigate } from "react-router-dom";
 
 export const App: FC = () => {
+  const navigate = useNavigate();
   const [state, setState] = useState<boolean>(false);
   const [cancelState, setCancelState] = useState<boolean>(true);
   function toggleStatus() {
@@ -84,7 +88,9 @@ export const App: FC = () => {
               Все клиники расположены недалеко от станций метро и остановок
               транспора
             </p>
-            <button>Показать адреса</button>
+            <button onClick={() => navigate("/clinics")}>
+              Показать адреса
+            </button>
           </div>
           <div className={styles.card5}>
             <h2>Собственные ветеринарные аптеки</h2>
@@ -106,7 +112,9 @@ export const App: FC = () => {
       <div className={styles.callForm}>
         <CallForm />
       </div>
-      <div className={styles.map}></div>
+      <div className={styles.map}>
+        <Ymap array={allCoordinates} />
+      </div>
       <div className={state ? styles.callAply : styles.none}>
         <div onClick={() => toggleStatus()} className={styles.close}></div>
         <div className={styles.info}>

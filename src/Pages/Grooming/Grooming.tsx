@@ -3,6 +3,8 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import styles from "./grooming.module.scss";
 import groomong from "@/Assets/груминг.jpg";
+import Ymap from "@/components/Ymap/Ymap";
+import { groomingCoordinates } from "@/utils/GroomingCoordinates";
 
 const Grooming: FC = () => {
   return (
@@ -25,6 +27,9 @@ const Grooming: FC = () => {
               69 Рядом метро: Университет Академическая Профсоюзная
             </li>
           </ul>
+          <div className={styles.map}>
+            <Ymap array={groomingCoordinates} />
+          </div>
         </div>
         <div className={styles.groomingImg}>
           <img src={groomong} alt="clinics" />

@@ -3,6 +3,8 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import styles from "./petShops.module.scss";
 import petShop from "@/Assets/зоомагазин.jpg";
+import Ymap from "@/components/Ymap/Ymap";
+import { petShopsCoordinates } from "@/utils/PetShopsCoordinates";
 
 const PetShops: FC = () => {
   return (
@@ -33,6 +35,9 @@ const PetShops: FC = () => {
               метро: Сухаревская
             </li>
           </ul>
+          <div className={styles.map}>
+            <Ymap array={petShopsCoordinates} />
+          </div>
         </div>
         <div className={styles.petShopImg}>
           <img src={petShop} alt="clinics" />
