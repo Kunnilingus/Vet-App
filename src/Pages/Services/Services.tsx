@@ -8,18 +8,20 @@ import rat from "@/Assets/Грызуны.jpg";
 import birds from "@/Assets/Попугаи.jpg";
 import reptiles from "@/Assets/Рептилии.jpg";
 import exots from "@/Assets/Экзоты.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Services: FC = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <Header />
       <h1 className={styles.services}>Услуги</h1>
       <div className={styles.cards}>
-        <div className={styles.card}>
+        <div onClick={() => navigate("/services/dogs")} className={styles.card}>
           <img className={styles.cardImg} src={dog} alt="dog" />
           <h2>Собаки</h2>
         </div>
-        <div className={styles.card}>
+        <div onClick={() => navigate("/services/cats")} className={styles.card}>
           <img className={styles.cardImg} src={cat} alt="dog" />
           <h2>Кошки</h2>
         </div>

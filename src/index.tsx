@@ -13,6 +13,8 @@ import { LazyActions } from "./Pages/Actions/Actions.lazy";
 import { LazyContacts } from "./Pages/Contacts/Contacts.lazy";
 import { LazyLogin } from "./Pages/Login/Login.lazy";
 import { LazyAccount } from "./Pages/Account/Account.lazy";
+import { LazyDogSrevices } from "./Pages/DogServices/DogServices.lazy";
+import { LazyCatServices } from "./Pages/CatServices/Cat.services.lazy";
 
 function Loading() {
   return <h2>🌀 Loading...</h2>;
@@ -99,6 +101,22 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         element={
           <Suspense fallback={Loading()}>
             <LazyAccount />
+          </Suspense>
+        }
+      />
+      <Route
+        path="services/dogs"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyDogSrevices />
+          </Suspense>
+        }
+      />
+      <Route
+        path="services/cats"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyCatServices />
           </Suspense>
         }
       />

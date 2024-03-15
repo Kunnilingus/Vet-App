@@ -304,6 +304,7 @@
   bottom: 0;
   padding: 15px;
   background-color: $main-purple;
+  box-shadow: -1px -1px 5px 1px rgba(58, 57, 57, 0.75);
   -webkit-animation: scale-up-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
     both;
   animation: scale-up-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
