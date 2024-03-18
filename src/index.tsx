@@ -15,6 +15,9 @@ import { LazyLogin } from "./Pages/Login/Login.lazy";
 import { LazyAccount } from "./Pages/Account/Account.lazy";
 import { LazyDogSrevices } from "./Pages/DogServices/DogServices.lazy";
 import { LazyCatServices } from "./Pages/CatServices/Cat.services.lazy";
+import { LazyRodentsServices } from "./Pages/RodentsServices/RodentsServices.lazy";
+import { LazyBirdsServices } from "./Pages/BirdsServices/BirdsServices.lazy";
+import { LazyReptileServices } from "./Pages/ReptilesServices/ReptilesServices.lazy";
 
 function Loading() {
   return <h2>🌀 Loading...</h2>;
@@ -117,6 +120,30 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         element={
           <Suspense fallback={Loading()}>
             <LazyCatServices />
+          </Suspense>
+        }
+      />
+      <Route
+        path="services/rodents"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyRodentsServices />
+          </Suspense>
+        }
+      />
+      <Route
+        path="services/birds"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyBirdsServices />
+          </Suspense>
+        }
+      />
+      <Route
+        path="services/reptiles"
+        element={
+          <Suspense fallback={Loading()}>
+            <LazyReptileServices />
           </Suspense>
         }
       />
