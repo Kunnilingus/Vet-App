@@ -11,15 +11,14 @@ import Button from "@/components/Button/Button";
 import Ymap from "@/components/Ymap/Ymap";
 import { allCoordinates } from "@/utils/AllCoordinates";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { show } from "@/store/slices/callFormSlice";
 
 export const App: FC = () => {
   const navigate = useNavigate();
-  const [state, setState] = useState<boolean>(false);
-  const [cancelState, setCancelState] = useState<boolean>(true);
-  function toggleStatus() {
-    setState(false);
-    setCancelState(true);
-  }
+  const dispatch = useAppDispatch();
+  const { flag, cancellState } = useAppSelector((state) => state.callForm);
+
   return (
     <div className={styles.App}>
       <Header />
@@ -33,7 +32,11 @@ export const App: FC = () => {
           <input type="text" placeholder="Имя" required />
           <input type="number" placeholder="+_()_ _ _-_ _-_ _" required />
           <div className={styles.btnNone}>
-            <Button onClick={() => setState(true)} purple50 text="Отправить" />
+            <Button
+              onClick={() => dispatch(show())}
+              purple50
+              text="Отправить"
+            />
           </div>
         </div>
         <div className={styles.corgie}>
@@ -115,29 +118,7 @@ export const App: FC = () => {
       <div className={styles.map}>
         <Ymap array={allCoordinates} />
       </div>
-      <div className={state ? styles.callAply : styles.none}>
-        <div onClick={() => toggleStatus()} className={styles.close}></div>
-        <div className={styles.info}>
-          <div className={cancelState ? styles.infoToHide : styles.none}>
-            <h2>Вы оставили заявку!</h2>
-            <p>
-              Наш сотрудник свяжется с вами в течение часа для уточнения
-              деталей,пожалуйста ожидайте.
-            </p>
-            <p>Вы так же можете отменить заявку</p>
-          </div>
-          <div className={cancelState ? styles.none : styles.cancsellText}>
-            Заявка отменена!
-          </div>
-          <div className={styles.cancellBtn}>
-            <Button
-              onClick={() => setCancelState(false)}
-              violet
-              text="Отменить заявку"
-            />
-          </div>
-        </div>
-      </div>
+      <CallAply />
       <Footer />
     </div>
   );

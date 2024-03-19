@@ -3,6 +3,7 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import styles from "./contacts.module.scss";
 import CallForm from "@/components/CallForm/CallForm";
+import CallAply from "@/components/CallAply/CallAply";
 
 const Contacts: FC = () => {
   return (
@@ -78,6 +79,7 @@ const Contacts: FC = () => {
           По вакансии просьба писать на почту: pochta@gaymail.ua
         </div>
       </div>
+      <CallAply />
       <Footer />
     </div>
   );

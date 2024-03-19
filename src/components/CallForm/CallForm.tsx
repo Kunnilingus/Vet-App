@@ -1,7 +1,10 @@
 import { FC } from "react";
 import styles from "./callForm.module.scss";
+import { useAppDispatch } from "@/hooks";
+import { show } from "@/store/slices/callFormSlice";
 
 const CallForm: FC = () => {
+  const dispatch = useAppDispatch();
   return (
     <div className={styles.callForm}>
       <div className={styles.header}>
@@ -10,7 +13,7 @@ const CallForm: FC = () => {
       </div>
       <input type="text" placeholder="Имя" required />
       <input type="text" placeholder="+_()_ _ _-_ _-_ _" required />
-      <button>Отправить</button>
+      <button onClick={() => dispatch(show())}>Отправить</button>
     </div>
   );
 };

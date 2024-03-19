@@ -1,36 +1,38 @@
 import { FC, useState } from "react";
 import styles from "./callAply.module.scss";
 import Button from "../Button/Button";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { hide, cancell } from "@/store/slices/callFormSlice";
 
-interface CallAplyProps {
-  state?: boolean;
-}
-const CallAply: FC<CallAplyProps> = ({ state }) => {
-  const [cancelState, setCancelState] = useState<boolean>(true);
-  function changeState() {
-    return (state = false);
-  }
-
+const CallAply: FC = () => {
+  const { flag, cancellState } = useAppSelector((state) => state.callForm);
+  const dispatch = useAppDispatch();
+  const hideWindow = () => {
+    dispatch(hide());
+    dispatch(cancell(true));
+  };
   return (
-    <div className={state ? styles.callAply : styles.none}>
-      <div onClick={() => changeState()} className={styles.close}></div>
-      <div className={cancelState ? styles.info : styles.none}>
-        <h2>Вы оставили заявку!</h2>
-        <p>
-          Наш сотрудник свяжется с вами в течение часа для уточнения
-          деталей,пожалуйста ожидайте.
-        </p>
-        <p>Вы так же можете отменить заявку</p>
-      </div>
-      <h3 className={cancelState === true ? styles.none : styles.cancel}>
-        Заявка отменена!
-      </h3>
-      <div>
-        <Button
-          onClick={() => setCancelState(false)}
-          violet
-          text="Отменить заявку"
-        />
+    <div className={flag ? styles.callAply : styles.none}>
+      <div onClick={() => dispatch(hideWindow)} className={styles.close}></div>
+      <div className={styles.info}>
+        <div className={cancellState ? styles.infoToHide : styles.none}>
+          <h2>Вы оставили заявку!</h2>
+          <p>
+            Наш сотрудник свяжется с вами в течение часа для уточнения
+            деталей,пожалуйста ожидайте.
+          </p>
+          <p>Вы так же можете отменить заявку</p>
+        </div>
+        <div className={cancellState ? styles.none : styles.cancel}>
+          Заявка отменена!
+        </div>
+        <div className={styles.cancellBtn}>
+          <Button
+            onClick={() => dispatch(cancell(false))}
+            violet
+            text="Отменить заявку"
+          />
+        </div>
       </div>
     </div>
   );

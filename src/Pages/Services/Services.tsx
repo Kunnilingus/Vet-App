@@ -39,11 +39,17 @@ const Services: FC = () => {
           <img className={styles.cardImg} src={birds} alt="dog" />
           <h2>Птицы</h2>
         </div>
-        <div onClick={() => navigate("/services/reptiles")} className={styles.card}>
+        <div
+          onClick={() => navigate("/services/reptiles")}
+          className={styles.card}
+        >
           <img className={styles.cardImg} src={reptiles} alt="dog" />
           <h2>Рептилии</h2>
         </div>
-        <div className={styles.card}>
+        <div
+          onClick={() => navigate("/services/exots")}
+          className={styles.card}
+        >
           <img className={styles.cardImg} src={exots} alt="dog" />
           <h2>Экзоты</h2>
         </div>
