@@ -65,3 +65,16 @@
     transition: all 0.2s ease-in;
   }
 }
+
+.accountLink {
+  @include headers-font;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: underline $main-purple;
+  color: $main-violet;
+  &:hover {
+    color: $main-purple;
+    text-decoration: underline $main-violet;
+  }
+  transition: all 0.2s ease-in;
+}

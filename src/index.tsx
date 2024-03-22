@@ -21,143 +21,155 @@ import { LazyReptileServices } from "./Pages/ReptilesServices/ReptilesServices.l
 import { LazyExotSrevices } from "./Pages/ExotServices/ExotServices.lazy";
 import Loading from "./components/Loading/Loading";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import store, { persistor } from "./store";
+import { LazyRegister } from "./Pages/Register/Register.lazy";
+import { PersistGate } from "redux-persist/integration/react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
-    <HashRouter>
-      <Routes>
-        <Route path="*" element={<App />} />
-        <Route path="main" element={<App />} />
-        <Route
-          path="services"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyServices />
-            </Suspense>
-          }
-        />
-        <Route
-          path="doctors"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyDoctors />
-            </Suspense>
-          }
-        />
-        <Route
-          path="clinics"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyClinics />
-            </Suspense>
-          }
-        />
-        <Route
-          path="pharmacy"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyPharmacy />
-            </Suspense>
-          }
-        />
-        <Route
-          path="petshops"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyPetShops />
-            </Suspense>
-          }
-        />
-        <Route
-          path="grooming"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyGrooming />
-            </Suspense>
-          }
-        />
-        <Route
-          path="actions"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyActions />
-            </Suspense>
-          }
-        />
-        <Route
-          path="contacts"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyContacts />
-            </Suspense>
-          }
-        />
-        <Route
-          path="login"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyLogin />
-            </Suspense>
-          }
-        />
-        <Route
-          path="account"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyAccount />
-            </Suspense>
-          }
-        />
-        <Route
-          path="services/dogs"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyDogSrevices />
-            </Suspense>
-          }
-        />
-        <Route
-          path="services/cats"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyCatServices />
-            </Suspense>
-          }
-        />
-        <Route
-          path="services/rodents"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyRodentsServices />
-            </Suspense>
-          }
-        />
-        <Route
-          path="services/birds"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyBirdsServices />
-            </Suspense>
-          }
-        />
-        <Route
-          path="services/reptiles"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyReptileServices />
-            </Suspense>
-          }
-        />
-        <Route
-          path="services/exots"
-          element={
-            <Suspense fallback={<Loading />}>
-              <LazyExotSrevices />
-            </Suspense>
-          }
-        />
-      </Routes>
-    </HashRouter>
+    <PersistGate loading={<Loading />} persistor={persistor}>
+      <HashRouter>
+        <Routes>
+          <Route path="*" element={<App />} />
+          <Route path="main" element={<App />} />
+          <Route
+            path="services"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyServices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="doctors"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyDoctors />
+              </Suspense>
+            }
+          />
+          <Route
+            path="clinics"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyClinics />
+              </Suspense>
+            }
+          />
+          <Route
+            path="pharmacy"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyPharmacy />
+              </Suspense>
+            }
+          />
+          <Route
+            path="petshops"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyPetShops />
+              </Suspense>
+            }
+          />
+          <Route
+            path="grooming"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyGrooming />
+              </Suspense>
+            }
+          />
+          <Route
+            path="actions"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyActions />
+              </Suspense>
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyContacts />
+              </Suspense>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyLogin />
+              </Suspense>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyRegister />
+              </Suspense>
+            }
+          />
+          <Route
+            path="account"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyAccount />
+              </Suspense>
+            }
+          />
+          <Route
+            path="services/dogs"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyDogSrevices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="services/cats"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyCatServices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="services/rodents"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyRodentsServices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="services/birds"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyBirdsServices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="services/reptiles"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyReptileServices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="services/exots"
+            element={
+              <Suspense fallback={<Loading />}>
+                <LazyExotSrevices />
+              </Suspense>
+            }
+          />
+        </Routes>
+      </HashRouter>
+    </PersistGate>
   </Provider>
 );

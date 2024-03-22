@@ -3,19 +3,35 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import styles from "./account.module.scss";
 import Button from "@/components/Button/Button";
+import { useAuth } from "@/hooks/useAuth";
+import { useAppDispatch, useAppSelector } from "@/hooks";
+import { removeUser } from "@/store/slices/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const Account: FC = () => {
+  const { email, id } = useAuth();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const { users } = useAppSelector((state) => state.userInfo);
+  const userInfo = users.find((item) => item.id === id);
+  const logout = () => {
+    dispatch(removeUser());
+    navigate("/home");
+  };
   return (
     <div>
       <Header />
       <div className={styles.container}>
-        <h1>Личный кабинет</h1>
+        <div className={styles.exit}>
+          <h1>Личный кабинет</h1>
+          <Button onClick={() => logout()} purple text="Выйти" />
+        </div>
         <ul>
-          <li>Фамилия: Балда</li>
-          <li>Имя: Алина</li>
-          <li>Отчество: Абобавна</li>
-          <li>Номер телефона: 8(913)-975-13-65</li>
-          <li>Email: kakashka@228.ru</li>
+          <li>Фамилия: {userInfo.secondName}</li>
+          <li>Имя: {userInfo.name}</li>
+          <li>Отчество: {userInfo.thirdName}</li>
+          <li>Номер телефона: {userInfo.number}</li>
+          <li>Email: {email}</li>
         </ul>
         <div className={styles.pets}>
           <h2>Мои питомцы</h2>

@@ -16,21 +16,6 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
       filename: "[name].[contenthash].js",
       clean: true,
     },
-    // externals: {
-    //   "@yandex/ymaps3-types": [
-    //     `promise new Promise((resolve) => {
-    //         if (typeof ymaps3 !== 'undefined') {
-    //           return ymaps3.ready.then(() => resolve(ymaps3));
-    //         }
-    //         const script = document.createElement('script');
-    //         script.src = "https://api-maps.yandex.ru/v3/?apikey=b0626ff1-3c76-4092-89f4-a8c2bd64b279&lang=ru_RU";
-    //         script.onload = () => {
-    //           ymaps3.ready.then(() => resolve(ymaps3));
-    //         };
-    //         document.head.appendChild(script);
-    //       })`,
-    //   ],
-    // },
     plugins: buildPlugins(options),
     module: {
       rules: buildLoaders(options),

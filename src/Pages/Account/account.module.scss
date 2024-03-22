@@ -12,7 +12,6 @@
   h1 {
     font-size: 40px;
     @include headers-font;
-    margin-bottom: 50px;
   }
   ul {
     margin-left: 25px;
@@ -101,4 +100,11 @@
 .meetBtn {
   align-self: center;
   margin-top: 25px;
+}
+
+.exit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
 }

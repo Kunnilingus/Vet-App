@@ -1,28 +1,37 @@
 import { FC } from "react";
-import Button from "@/components/Button/Button";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import { Link, useNavigate } from "react-router-dom";
-import styles from "./login.module.scss";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "@/hooks";
+import { setUser } from "@/store/slices/userSlice";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "@/firebase";
+import { useAuth } from "@/hooks/useAuth";
+import LoginForm from "@/components/LoginForm/LoginForm";
 
 const Login: FC = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const handleLogin = (email: string, password: string) => {
+    const auth = getAuth(app);
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        dispatch(
+          setUser({
+            email: user.email,
+            id: user.uid,
+            token: user.refreshToken,
+          })
+        );
+
+        navigate("/account");
+      })
+      .catch(() => alert("Неверные данные"));
+  };
   return (
     <div>
       <Header />
-      <div className={styles.container}>
-        <h1 className={styles.header}>Вход</h1>
-        <input className={styles.login} type="text" placeholder="Логин" />
-        <input
-          className={styles.password}
-          type="password"
-          placeholder="Пароль"
-        />
-        <Button onClick={() => navigate("/account")} purple50 text="Войти" />
-        <p className={styles.register}>
-          Нет аккаунта? <Link to="/register">Зарегестрироваться</Link>
-        </p>
-      </div>
+      <LoginForm mode="login" title="Войти" onClick={handleLogin} />
       <Footer />
     </div>
   );
