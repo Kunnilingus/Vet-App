@@ -1,0 +1,97 @@
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
+@import "@/scss/_base";
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  width: 1520px;
+  height: 500px;
+  border: 2px solid $main-violet;
+  border-radius: 10px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+}
+
+.cards::-webkit-scrollbar {
+  height: 10px;
+}
+.cards::-webkit-scrollbar-track {
+  display: none;
+}
+.cards::-webkit-scrollbar-thumb {
+  background-color: $main-purple;
+  border-radius: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 450px;
+  border: 2px solid $main-purple;
+  border-radius: 10px;
+  background-color: $main-purple30;
+  padding: 10px;
+  line-height: 30px;
+  p {
+    font-size: 24px;
+  }
+  span {
+    font-size: 24px;
+    align-self: center;
+  }
+
+  animation-name: slideInRight;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.none {
+  display: none;
+}
+
+.noPets {
+  font-size: 24px;
+  align-self: center;
+  position: absolute;
+  margin-left: 486px;
+  @include headers-font;
+}
+
+.btn {
+  position: absolute;
+  align-self: center;
+  bottom: 0;
+  margin-bottom: 50px;
+}

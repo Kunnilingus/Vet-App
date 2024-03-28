@@ -1,4 +1,9 @@
+import { IBirdList } from "./IBirdList";
+import { ICatList } from "./ICatList";
 import { IDogList } from "./IDogList";
+import { IExotList } from "./IExotList";
+import { IReptileList } from "./IReptileList";
+import { IRodentList } from "./IRodentList";
 
 export interface IUser {
   email: any;
@@ -9,5 +14,4 @@ export interface IUser {
   thirdName: any;
   number: any;
   password: any;
-  dogs: IDogList[];
 }

@@ -1,4 +1,3 @@
-import { IDogList } from "@/models/IDogList";
 import { IUser } from "@/models/IUser";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -22,7 +21,6 @@ const userInfoSlice = createSlice({
         secondName: action.payload.secondName,
         thirdName: action.payload.thirdName,
         number: action.payload.number,
-        dogs: action.payload.dogs,
         password: action.payload.password,
       });
     },

@@ -40,7 +40,6 @@ const Register: FC = () => {
             thirdName,
             number,
             password,
-            dogs: [],
           })
         );
         navigate("/account");

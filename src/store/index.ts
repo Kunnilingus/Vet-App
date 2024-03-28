@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import callFormReducer from "./slices/callFormSlice";
 import userReducer from "./slices/userSlice";
 import userInfoReducer from "./slices/userInfoSlice";
+import petsReducer from "./slices/petSlice";
 import {
   persistStore,
   persistReducer,
@@ -18,10 +19,12 @@ const persistConfig = {
   key: "root",
   storage,
 };
+
 const rootReducer = combineReducers({
   callForm: callFormReducer,
   user: userReducer,
   userInfo: userInfoReducer,
+  pets: petsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

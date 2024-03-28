@@ -1,4 +1,4 @@
-export interface IDogList {
+export interface ICatList {
   id: any;
   name: string;
   age: string;
