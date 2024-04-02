@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import styles from "./addPetModal.module.scss";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { hide } from "@/store/slices/callFormSlice";
+import { hidePetModal } from "@/store/slices/modalsSlice";
 import { IUser } from "@/models/IUser";
 import Button from "../Button/Button";
 import {
@@ -17,7 +17,7 @@ interface AddPetModalProps {
   user: IUser;
 }
 const AddPetModal: FC<AddPetModalProps> = ({ user }) => {
-  const { flag } = useAppSelector((state) => state.callForm);
+  const { petModalFlag } = useAppSelector((state) => state.modals);
   const dispatch = useAppDispatch();
   const [selectValue, setSelectValue] = useState<string>("");
   const [sterilization, setSterelization] = useState<boolean>(false);
@@ -64,7 +64,7 @@ const AddPetModal: FC<AddPetModalProps> = ({ user }) => {
         setAge("");
         setColor("");
         setBreed("");
-        dispatch(hide());
+        dispatch(hidePetModal());
         break;
       case "cats":
         dispatch(
@@ -86,7 +86,7 @@ const AddPetModal: FC<AddPetModalProps> = ({ user }) => {
         setAge("");
         setColor("");
         setBreed("");
-        dispatch(hide());
+        dispatch(hidePetModal());
         break;
       case "rodents":
         dispatch(
@@ -104,7 +104,7 @@ const AddPetModal: FC<AddPetModalProps> = ({ user }) => {
         setColor("");
         setBreed("");
         setTreatment(false);
-        dispatch(hide());
+        dispatch(hidePetModal());
         break;
       case "birds":
         dispatch(
@@ -122,7 +122,7 @@ const AddPetModal: FC<AddPetModalProps> = ({ user }) => {
         setColor("");
         setBreed("");
         setTreatment(false);
-        dispatch(hide());
+        dispatch(hidePetModal());
         break;
       case "reptiles":
         dispatch(
@@ -140,7 +140,7 @@ const AddPetModal: FC<AddPetModalProps> = ({ user }) => {
         setColor("");
         setBreed("");
         setTreatment(false);
-        dispatch(hide());
+        dispatch(hidePetModal());
         break;
       case "exots":
         dispatch(
@@ -158,21 +158,24 @@ const AddPetModal: FC<AddPetModalProps> = ({ user }) => {
         setColor("");
         setBreed("");
         setTreatment(false);
-        dispatch(hide());
+        dispatch(hidePetModal());
         break;
     }
   }
   const dogOrCat =
     selectValue === "dogs" ? true : selectValue === "cats" ? true : false;
   return (
-    <div className={flag ? styles.addPetModal : styles.none}>
+    <div className={petModalFlag ? styles.addPetModal : styles.none}>
       <div className={styles.container}>
         <div className={styles.content}>
           <h1>Регестрация питомца</h1>
           <div className={styles.select}>
             <p>Выберите вид животного:</p>
-            <select onChange={(e) => setSelectValue(e.target.value)}>
-              <option selected disabled>
+            <select
+              defaultValue="выберите"
+              onChange={(e) => setSelectValue(e.target.value)}
+            >
+              <option value="выберите" disabled>
                 Выберите
               </option>
               <option value="dogs">Собаки</option>
@@ -246,7 +249,10 @@ const AddPetModal: FC<AddPetModalProps> = ({ user }) => {
             </div>
           </div>
         </div>
-        <div onClick={() => dispatch(hide())} className={styles.close}></div>
+        <div
+          onClick={() => dispatch(hidePetModal())}
+          className={styles.close}
+        ></div>
       </div>
     </div>
   );

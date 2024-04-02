@@ -12,13 +12,16 @@ import Ymap from "@/components/Ymap/Ymap";
 import { allCoordinates } from "@/utils/AllCoordinates";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { show } from "@/store/slices/callFormSlice";
+import { show } from "@/store/slices/modalsSlice";
+import { useAuth } from "@/hooks/useAuth";
 
 export const App: FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { flag, cancellState } = useAppSelector((state) => state.callForm);
-
+  const { flag, cancellState } = useAppSelector((state) => state.modals);
+  const { isAuth, id } = useAuth();
+  const { users } = useAppSelector((state) => state.userInfo);
+  const userInfo = users.find((item) => item.id === id);
   return (
     <div className={styles.App}>
       <Header />
@@ -29,8 +32,18 @@ export const App: FC = () => {
             <br /> и мы Вам
             <br /> перезвоним!
           </h2>
-          <input type="text" placeholder="Имя" required />
-          <input type="number" placeholder="+_()_ _ _-_ _-_ _" required />
+          <input
+            value={isAuth ? userInfo.name : ""}
+            type="text"
+            placeholder="Имя"
+            required
+          />
+          <input
+            value={isAuth ? userInfo.number : ""}
+            type="number"
+            placeholder="+_()_ _ _-_ _-_ _"
+            required
+          />
           <div className={styles.btnNone}>
             <Button
               onClick={() => dispatch(show())}

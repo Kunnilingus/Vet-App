@@ -2,10 +2,10 @@ import { FC, useState } from "react";
 import styles from "./callAply.module.scss";
 import Button from "../Button/Button";
 import { useAppDispatch, useAppSelector } from "@/hooks";
-import { hide, cancell } from "@/store/slices/callFormSlice";
+import { hide, cancell } from "@/store/slices/modalsSlice";
 
 const CallAply: FC = () => {
-  const { flag, cancellState } = useAppSelector((state) => state.callForm);
+  const { flag, cancellState } = useAppSelector((state) => state.modals);
   const dispatch = useAppDispatch();
   const hideWindow = () => {
     dispatch(hide());

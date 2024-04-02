@@ -1,8 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import callFormReducer from "./slices/callFormSlice";
+import modalsReducer from "./slices/modalsSlice";
 import userReducer from "./slices/userSlice";
 import userInfoReducer from "./slices/userInfoSlice";
 import petsReducer from "./slices/petSlice";
+import meetingReducer from "./slices/meetingSlice";
 import {
   persistStore,
   persistReducer,
@@ -21,10 +22,11 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  callForm: callFormReducer,
+  modals: modalsReducer,
   user: userReducer,
   userInfo: userInfoReducer,
   pets: petsReducer,
+  meetings: meetingReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

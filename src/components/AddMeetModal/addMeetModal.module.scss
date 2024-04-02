@@ -1,0 +1,228 @@
+@import "@/scss/_reset";
+@import "@/scss/_vars";
+@import "@/scss/_fonts";
+@import "@/scss/_base";
+
+.none {
+  display: none;
+}
+
+.addPetModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-top: -10px;
+  background-color: rgba(0, 0, 0, 0.555);
+  z-index: 10;
+  position: fixed;
+}
+
+.container {
+  display: flex;
+  border: 2px solid $main-violet50;
+  border-radius: 20px;
+  width: 1000px;
+  height: 900px;
+  background-color: $main-purple;
+  -webkit-animation-name: zoomIn;
+  animation-name: zoomIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
+  transition: 0.2s all ease-in;
+}
+.close::after,
+.close::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 5px;
+  background: $main-violet;
+}
+
+.close::after {
+  transform: rotate(-45deg);
+}
+.close::before {
+  transform: rotate(45deg);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  h1 {
+    @include headers-font;
+    font-size: 24px;
+    align-self: center;
+    margin-top: 25px;
+  }
+}
+.select {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-top: 25px;
+  p {
+    font-size: 20px;
+  }
+  select {
+    margin-left: 25px;
+    display: block;
+    font-size: 20px;
+    border: 2px solid $main-purple;
+    border-radius: 15px;
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    outline: none;
+    &:hover {
+      border: 2px solid $main-violet;
+    }
+    transition: 0.2s all ease-in;
+  }
+}
+
+.nameSelect {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-top: 25px;
+  p {
+    font-size: 20px;
+  }
+  select {
+    margin-left: 25px;
+    display: block;
+    font-size: 20px;
+    border: 2px solid $main-purple;
+    border-radius: 15px;
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    outline: none;
+    &:hover {
+      border: 2px solid $main-violet;
+    }
+    transition: 0.2s all ease-in;
+  }
+}
+
+.dateSelect {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-top: 25px;
+  p {
+    font-size: 20px;
+  }
+  input {
+    margin-left: 25px;
+    display: block;
+    font-size: 20px;
+    border: 2px solid $main-purple;
+    border-radius: 15px;
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    outline: none;
+    &:hover {
+      border: 2px solid $main-violet;
+    }
+    transition: 0.2s all ease-in;
+  }
+}
+
+.complaintsSelect {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-top: 25px;
+  p {
+    font-size: 20px;
+  }
+  input {
+    margin-left: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    border: 2px solid $main-purple;
+    border-radius: 15px;
+    height: 50px;
+    width: 250px;
+    text-align: center;
+    outline: none;
+    &:hover {
+      border: 2px solid $main-violet;
+    }
+    transition: 0.2s all ease-in;
+  }
+}
+
+.textarea {
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  margin-top: 25px;
+  p {
+    font-size: 20px;
+  }
+  textarea {
+    margin-left: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    border-radius: 5px;
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    outline: none;
+    &:hover {
+      border: 2px solid $main-violet;
+    }
+  }
+}
+
+.btn {
+  position: absolute;
+  align-self: center;
+  margin-top: 600px;
+}

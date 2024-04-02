@@ -15,6 +15,7 @@ const Ymap: FC<YmapProps> = ({ array }) => {
       >
         {array.map((item) => (
           <Placemark
+            key={Date.now()}
             modules={["geoObject.addon.balloon"]}
             options={{ iconColor: item.color }}
             properties={{ balloonContentBody: item.description }}

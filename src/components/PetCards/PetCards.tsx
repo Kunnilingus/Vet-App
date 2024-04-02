@@ -17,6 +17,7 @@ import { IRodentList } from "@/models/IRodentList";
 import { IBirdList } from "@/models/IBirdList";
 import { IReptileList } from "@/models/IReptileList";
 import { IExotList } from "@/models/IExotList";
+import { getRandomInt } from "@/utils/GetRandomInt";
 
 interface PetCardsProps {
   value: string;
@@ -70,15 +71,15 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       return (
         <div className={styles.cards}>
           {currentDog.map((item) => (
-            <div className={styles.card}>
+            <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
-              <p>Порода:{item.breed}</p>
-              <p>Окрас:{item.color}</p>
-              <p>Возраст:{item.age}</p>
-              <p>Кастрация:{item.sterilization ? "Да" : "Нет"}</p>
+              <p>Порода: {item.breed}</p>
+              <p>Окрас: {item.color}</p>
+              <p>Возраст: {item.age}</p>
+              <p>Кастрация: {item.sterilization ? "Да" : "Нет"}</p>
               <span>Обработка</span>
-              <p>Эктопаразиты:{item.ecto ? "Да" : "Нет"}</p>
-              <p>Эндопаразиты:{item.endo ? "Да" : "Нет"}</p>
+              <p>Эктопаразиты: {item.ecto ? "Да" : "Нет"}</p>
+              <p>Эндопаразиты: {item.endo ? "Да" : "Нет"}</p>
               <div className={styles.btn}>
                 <Button
                   onClick={() => deleteDogFromArr(item)}
@@ -98,15 +99,15 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       return (
         <div className={styles.cards}>
           {currentCat.map((item) => (
-            <div className={styles.card}>
+            <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
-              <p>Порода:{item.breed}</p>
-              <p>Окрас:{item.color}</p>
-              <p>Возраст:{item.age}</p>
-              <p>Кастрация:{item.sterilization ? "Да" : "Нет"}</p>
+              <p>Порода: {item.breed}</p>
+              <p>Окрас: {item.color}</p>
+              <p>Возраст: {item.age}</p>
+              <p>Кастрация: {item.sterilization ? "Да" : "Нет"}</p>
               <span>Обработка</span>
-              <p>Эктопаразиты:{item.ecto ? "Да" : "Нет"}</p>
-              <p>Эндопаразиты:{item.endo ? "Да" : "Нет"}</p>
+              <p>Эктопаразиты: {item.ecto ? "Да" : "Нет"}</p>
+              <p>Эндопаразиты: {item.endo ? "Да" : "Нет"}</p>
               <div className={styles.btn}>
                 <Button
                   onClick={() => deleteCatFromArr(item)}
@@ -126,12 +127,12 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       return (
         <div className={styles.cards}>
           {currentRodent.map((item) => (
-            <div className={styles.card}>
+            <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
-              <p>Вид:{item.species}</p>
-              <p>Окрас:{item.color}</p>
-              <p>Возраст:{item.age}</p>
-              <p>Обработка:{item.treatment ? "Да" : "Нет"}</p>
+              <p>Вид: {item.species}</p>
+              <p>Окрас: {item.color}</p>
+              <p>Возраст: {item.age}</p>
+              <p>Обработка: {item.treatment ? "Да" : "Нет"}</p>
               <div className={styles.btn}>
                 <Button
                   onClick={() => deleteRodentFromArr(item)}
@@ -151,12 +152,12 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       return (
         <div className={styles.cards}>
           {currentBird.map((item) => (
-            <div className={styles.card}>
+            <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
-              <p>Вид:{item.species}</p>
-              <p>Окрас:{item.color}</p>
-              <p>Возраст:{item.age}</p>
-              <p>Обработка:{item.treatment ? "Да" : "Нет"}</p>
+              <p>Вид: {item.species}</p>
+              <p>Окрас: {item.color}</p>
+              <p>Возраст: {item.age}</p>
+              <p>Обработка: {item.treatment ? "Да" : "Нет"}</p>
               <div className={styles.btn}>
                 <Button
                   onClick={() => deleteBirdFromArr(item)}
@@ -176,12 +177,12 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       return (
         <div className={styles.cards}>
           {currentReptile.map((item) => (
-            <div className={styles.card}>
+            <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
-              <p>Вид:{item.species}</p>
-              <p>Окрас:{item.color}</p>
-              <p>Возраст:{item.age}</p>
-              <p>Обработка:{item.treatment ? "Да" : "Нет"}</p>
+              <p>Вид: {item.species}</p>
+              <p>Окрас: {item.color}</p>
+              <p>Возраст: {item.age}</p>
+              <p>Обработка: {item.treatment ? "Да" : "Нет"}</p>
               <div className={styles.btn}>
                 <Button
                   onClick={() => deleteReptileFromArr(item)}
@@ -203,12 +204,12 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       return (
         <div className={styles.cards}>
           {currentExot.map((item) => (
-            <div className={styles.card}>
+            <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
-              <p>Вид:{item.species}</p>
-              <p>Окрас:{item.color}</p>
-              <p>Возраст:{item.age}</p>
-              <p>Обработка:{item.treatment ? "Да" : "Нет"}</p>
+              <p>Вид: {item.species}</p>
+              <p>Окрас: {item.color}</p>
+              <p>Возраст: {item.age}</p>
+              <p>Обработка: {item.treatment ? "Да" : "Нет"}</p>
               <div className={styles.btn}>
                 <Button
                   onClick={() => deleteExotFromArr(item)}

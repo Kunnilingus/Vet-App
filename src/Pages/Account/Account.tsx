@@ -9,7 +9,9 @@ import { removeUser } from "@/store/slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import PetCards from "@/components/PetCards/PetCards";
 import AddPetModal from "@/components/AddPetModal/AddPetModal";
-import { show } from "@/store/slices/callFormSlice";
+import { showMeetsModal, showPetModal } from "@/store/slices/modalsSlice";
+import Meetings from "@/components/Meetings/Meetings";
+import AddMeetModal from "@/components/AddMeetModal/AddMeetModal";
 
 const Account: FC = () => {
   const { email, id } = useAuth();
@@ -21,11 +23,11 @@ const Account: FC = () => {
     dispatch(removeUser());
     navigate("/home");
   };
-  console.log(userInfo);
   const [state, setState] = useState<string>("dogs");
   return (
     <div>
       <AddPetModal user={userInfo} />
+      <AddMeetModal user={userInfo}/>
       <Header />
       <div className={styles.container}>
         <div className={styles.exit}>
@@ -51,7 +53,7 @@ const Account: FC = () => {
               <option value="exots">Экзоты</option>
             </select>
             <Button
-              onClick={() => dispatch(show())}
+              onClick={() => dispatch(showPetModal())}
               violetBorder
               text="Добавить"
             />
@@ -61,27 +63,15 @@ const Account: FC = () => {
         <div className={styles.meets}>
           <h3>Мои ближайшие приёмы у врачей</h3>
           <div className={styles.btn}>
-            <Button purpleBorder text="Записаться на приём" />
+            <Button
+              onClick={() => dispatch(showMeetsModal())}
+              purpleBorder
+              text="Записаться на приём"
+            />
           </div>
-          <div className={styles.cards}>
-            <div className={styles.card}>
-              <p>На приём идёт:</p>
-              <p>Дата приёма:</p>
-              <p>Жалобы на:</p>
-              <p>Ваш врач:</p>
-              <p>Стоимость приёма:</p>
-              <div className={styles.meetBtn}>
-                <Button violet50 text="Перенести приём" />
-              </div>
-              <div className={styles.meetBtn}>
-                <Button violet text="Отменить приём" />
-              </div>
-            </div>
-            <div className={styles.card}></div>
-          </div>
+          <Meetings user={userInfo} />
         </div>
       </div>
-
       <Footer />
     </div>
   );
