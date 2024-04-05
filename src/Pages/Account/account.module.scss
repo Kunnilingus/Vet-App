@@ -52,35 +52,6 @@
   }
 }
 
-.cards {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  padding: 30px;
-  width: 1520px;
-  height: 500px;
-  border: 2px solid $main-violet;
-  border-radius: 20px;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  height: 450px;
-  border: 2px solid $main-purple;
-  border-radius: 20px;
-  background-color: $main-purple30;
-  padding: 10px;
-  line-height: 30px;
-  p {
-    font-size: 24px;
-  }
-  span {
-    font-size: 24px;
-    align-self: center;
-  }
-}
 
 .meets {
   display: flex;
@@ -97,12 +68,82 @@
   margin-bottom: 25px;
 }
 
-.meetBtn {
-  align-self: center;
-  margin-top: 25px;
-}
 
 .exit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+//Mobile
+
+.containerMobile {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 100px;
+  h1 {
+    font-size: 40px;
+    @include headers-font;
+  }
+  ul {
+    margin-left: 25px;
+    font-size: 24px;
+    line-height: 35px;
+    margin-bottom: 50px;
+  }
+}
+
+.petsMobile {
+  display: flex;
+  flex-direction: column;
+  h2 {
+    font-size: 36px;
+    @include headers-font;
+  }
+}
+
+.selectMobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  select {
+    display: block;
+    font-size: 20px;
+    border: 2px solid $main-purple;
+    border-radius: 15px;
+    height: 64px;
+    width: 120px;
+    text-align: center;
+    outline: none;
+    &:hover {
+      border: 2px solid $main-violet;
+    }
+    transition: 0.2s all ease-in;
+  }
+}
+
+.meetsMobile {
+  display: flex;
+  flex-direction: column;
+  h3 {
+    font-size: 36px;
+    @include headers-font;
+    margin-top: 50px;
+  }
+}
+
+.btnMobile {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+
+.exitMobile {
   display: flex;
   justify-content: space-between;
   align-items: center;

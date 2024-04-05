@@ -12,6 +12,8 @@ import AddPetModal from "@/components/AddPetModal/AddPetModal";
 import { showMeetsModal, showPetModal } from "@/store/slices/modalsSlice";
 import Meetings from "@/components/Meetings/Meetings";
 import AddMeetModal from "@/components/AddMeetModal/AddMeetModal";
+import { useMediaQuery } from "react-responsive";
+import HeaderMobile from "@/components/HeaderMobile/HeaderMobile";
 
 const Account: FC = () => {
   const { email, id } = useAuth();
@@ -24,13 +26,15 @@ const Account: FC = () => {
     navigate("/home");
   };
   const [state, setState] = useState<string>("dogs");
+  const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1439px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   return (
     <div>
       <AddPetModal user={userInfo} />
-      <AddMeetModal user={userInfo}/>
-      <Header />
-      <div className={styles.container}>
-        <div className={styles.exit}>
+      <AddMeetModal user={userInfo} />
+      {isDesktop ? <Header /> : <HeaderMobile />}
+      <div className={isDesktop ? styles.container : styles.containerMobile}>
+        <div className={isDesktop ? styles.exit : styles.exitMobile}>
           <h1>Личный кабинет</h1>
           <Button onClick={() => logout()} purple text="Выйти" />
         </div>
@@ -41,9 +45,9 @@ const Account: FC = () => {
           <li>Номер телефона: {userInfo.number}</li>
           <li>Email: {email}</li>
         </ul>
-        <div className={styles.pets}>
+        <div className={isDesktop ? styles.pets : styles.petsMobile}>
           <h2>Мои питомцы</h2>
-          <div className={styles.select}>
+          <div className={isDesktop ? styles.select : styles.selectMobile}>
             <select onChange={(e) => setState(e.target.value)}>
               <option value="dogs">Собаки</option>
               <option value="cats">Кошки</option>
@@ -58,21 +62,21 @@ const Account: FC = () => {
               text="Добавить"
             />
           </div>
-          <PetCards value={state} user={userInfo} />
+          <PetCards isDesktop={isDesktop} value={state} user={userInfo} />
         </div>
-        <div className={styles.meets}>
+        <div className={isDesktop ? styles.meets : styles.meetsMobile}>
           <h3>Мои ближайшие приёмы у врачей</h3>
-          <div className={styles.btn}>
+          <div className={isDesktop ? styles.btn : styles.btnMobile}>
             <Button
               onClick={() => dispatch(showMeetsModal())}
               purpleBorder
               text="Записаться на приём"
             />
           </div>
-          <Meetings user={userInfo} />
+          <Meetings isDesktop={isDesktop} user={userInfo} />
         </div>
       </div>
-      <Footer />
+      <Footer isDesktop={isDesktop} isMobile={isMobileOrTablet} />
     </div>
   );
 };

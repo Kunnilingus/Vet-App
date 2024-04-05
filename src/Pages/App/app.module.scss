@@ -127,23 +127,11 @@
     margin-left: 60px;
     @include text-font;
   }
-  button {
-    align-self: center;
-    margin-top: 30px;
-    background-color: $main-violet80;
-    height: 64px;
-    width: 170px;
-    font-size: 20px;
-    border-radius: 15px;
-    border: 2px solid $main-violet50;
-    box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
-    &:hover {
-      background-color: $main-violet50;
-      color: white;
-      border: 2px solid $main-purple50;
-    }
-    transition: all 0.2s ease-in;
-  }
+}
+
+.btn {
+  align-self: center;
+  margin-top: 50px;
 }
 
 .card2 {
@@ -292,111 +280,264 @@
 .none {
   display: none;
 }
- 
-.callAply {
-  display: flex;
-  border: 2px solid $main-violet50;
-  border-radius: 20px;
-  width: 450px;
-  height: 500px;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  padding: 15px;
-  background-color: $main-purple;
-  box-shadow: -1px -1px 5px 1px rgba(58, 57, 57, 0.75);
-  -webkit-animation: scale-up-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
-    both;
-  animation: scale-up-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-}
-@-webkit-keyframes scale-up-right {
-  0% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-  }
-}
-@keyframes scale-up-right {
-  0% {
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-  }
-}
 
-.close {
-  position: absolute;
-  top: 25px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  opacity: 0.5;
-  &:hover {
-    opacity: 1;
-  }
-  transition: 0.2s all ease-in;
-}
-.close::after,
-.close::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 25px;
-  height: 5px;
-  background: $main-violet;
-}
+//Mobile styles
 
-.close::after {
-  transform: rotate(-45deg);
-}
-.close::before {
-  transform: rotate(45deg);
-}
-
-.info {
+.greetingMobile {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 550px;
+  margin-top: 50px;
+  align-self: center;
+  p {
+    @include text-font;
+  }
   h2 {
-    font-size: 36px;
     @include headers-font;
-    margin-top: 50px;
+  }
+}
+
+.corgieMobile {
+  display: none;
+}
+
+.block1Mobile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+  h2 {
+    margin-bottom: 35px;
+    font-size: 24px;
+    color: $main-violet;
+    text-align: center;
+  }
+  input {
+    background-color: $main-purple50;
+    margin-bottom: 15px;
+    width: 255px;
+    height: 35px;
+    border-radius: 10px;
+    text-align: center;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+  input:invalid + .btnNone {
+    pointer-events: none;
+  }
+}
+
+.block2Mobile {
+  border: 2px solid $main-purple;
+  background-color: $main-purple50;
+  width: 300px;
+  height: 270px;
+  border-radius: 20px;
+  margin-top: 45px;
+  span {
+    color: $main-violet;
+  }
+  h2 {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 24px;
+    color: $main-violet;
+    margin-bottom: 15px;
   }
   p {
-    margin-top: 15px;
-    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+}
+
+.advantagesMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  h1 {
+    font-size: 40px;
+    @include headers-font;
+  }
+}
+
+.cardsMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.card1Mobile {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid $main-purple;
+  background-color: $main-purple80;
+  width: max-content;
+  height: 550px;
+  border-radius: 20px;
+  h2 {
+    font-size: 32px;
+    margin-top: 10px;
+    margin-left: 20px;
+    @include headers-font;
+  }
+  li {
+    list-style: circle;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 60px;
     @include text-font;
   }
 }
 
-.cancellBtn {
-  position: absolute;
-  margin-top: 80%;
-  left: 31%;
+.btnMobile {
+  align-self: center;
+  margin-top: 50px;
 }
 
-.infoToHide {
+.card2Mobile {
+  width: 80%;
+  height: 550px;
+  h2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 32px;
+    color: $main-violet;
+    @include headers-font;
+  }
+  p {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 30px;
+    @include text-font;
+  }
+}
+
+.card3Mobile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid $main-purple;
+  background-color: $main-purple30;
+  width: 80%;
+  height: 550px;
+  border-radius: 20px;
+  overflow: hidden;
+  div {
+    position: absolute;
+    margin-bottom: 100px;
+  }
+}
+
+.card4Mobile {
   display: flex;
   flex-direction: column;
+  border: 3px solid $main-violet;
+  background-color: $main-violet80;
+  width: 80%;
+  height: 550px;
+  border-radius: 20px;
+  color: #fff;
+  h2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 32px;
+    @include headers-font;
+  }
+  p {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 30px;
+    @include text-font;
+  }
+  button {
+    align-self: center;
+    margin-top: 70px;
+    background-color: $main-purple;
+    height: 64px;
+    width: 170px;
+    font-size: 20px;
+    border-radius: 15px;
+    color: #000;
+    border: 2px solid $main-purple;
+    box-shadow: 1px 1px 5px 1px rgba(58, 57, 57, 0.75);
+    &:hover {
+      background-color: $main-violet50;
+      color: white;
+      border: 2px solid $main-purple50;
+    }
+    transition: all 0.2s ease-in;
+  }
 }
 
-.cancsellText {
-  @include headers-font;
-  font-size: 40px;
-  margin-top: 50%;
-  margin-left: 40px;
+.card5Mobile {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 550px;
+  h2 {
+    color: $main-purple;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 32px;
+    @include headers-font;
+  }
+  p {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 30px;
+    @include text-font;
+  }
+  div {
+    align-self: flex-end;
+    margin-right: 70px;
+    margin-top: 50px;
+  }
+}
+
+.card6Mobile {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid $main-violet50;
+  background-color: $main-violet30;
+  width: 80%;
+  height: 550px;
+  border-radius: 20px;
+  h2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 36px;
+    @include headers-font;
+  }
+  p {
+    margin-left: 20px;
+    margin-top: 25px;
+    font-size: 32px;
+    @include text-font;
+  }
+  span {
+    margin-top: 100px;
+    font-size: 40px;
+    color: $main-violet;
+    align-self: center;
+  }
+}
+
+.callFormMobile {
+  margin-top: 100px;
+}
+
+.mapMobile {
+  margin-top: 100px;
+  border: 3px solid $main-purple;
+  border-radius: 20px;
+  width: 100%;
+  height: 750px;
+  overflow: hidden;
 }

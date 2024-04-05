@@ -3,14 +3,20 @@ import { FC } from "react";
 import styles from "./doctors.module.scss";
 import doc from "@/Assets/Врач.jpg";
 import Footer from "@/components/Footer/Footer";
+import { useMediaQuery } from "react-responsive";
+import HeaderMobile from "@/components/HeaderMobile/HeaderMobile";
 
 const Doctors: FC = () => {
+  const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1439px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   return (
     <div>
-      <Header />
-      <h1 className={styles.title}>Наши специалисты</h1>
-      <div className={styles.cards}>
-        <div className={styles.card}>
+      {isDesktop ? <Header /> : <HeaderMobile />}
+      <h1 className={isDesktop ? styles.title : styles.titleMobile}>
+        Наши специалисты
+      </h1>
+      <div className={isDesktop ? styles.cards : styles.cardsMobile}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -21,7 +27,7 @@ const Doctors: FC = () => {
             врач-инфекционист, врач-кайфарик.
           </p>
         </div>
-        <div className={styles.card}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -32,7 +38,7 @@ const Doctors: FC = () => {
             врач-инфекционист, врач-кайфарик.
           </p>
         </div>
-        <div className={styles.card}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -43,7 +49,7 @@ const Doctors: FC = () => {
             врач-инфекционист, врач-кайфарик.
           </p>
         </div>
-        <div className={styles.card}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -54,7 +60,7 @@ const Doctors: FC = () => {
             врач-инфекционист, врач-кайфарик.
           </p>
         </div>
-        <div className={styles.card}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -65,7 +71,7 @@ const Doctors: FC = () => {
             врач-инфекционист, врач-кайфарик.
           </p>
         </div>
-        <div className={styles.card}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -76,7 +82,7 @@ const Doctors: FC = () => {
             врач-инфекционист, врач-кайфарик.
           </p>
         </div>
-        <div className={styles.card}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -87,7 +93,7 @@ const Doctors: FC = () => {
             врач-инфекционист, врач-кайфарик.
           </p>
         </div>
-        <div className={styles.card}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -98,7 +104,7 @@ const Doctors: FC = () => {
             врач-инфекционист, врач-кайфарик.
           </p>
         </div>
-        <div className={styles.card}>
+        <div className={isDesktop ? styles.card : styles.cardMobile}>
           <div className={styles.cardImg}>
             <img src={doc} alt="doc" />
           </div>
@@ -110,7 +116,7 @@ const Doctors: FC = () => {
           </p>
         </div>
       </div>
-      <Footer />
+      <Footer isDesktop={isDesktop} isMobile={isMobileOrTablet} />
     </div>
   );
 };

@@ -46,3 +46,49 @@
     @include headers-font;
   }
 }
+
+//Mobile styles
+
+.footerMobile {
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: min-content;
+  background-color: $main-purple80;
+}
+
+.section1Mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid $main-violet;
+  height: min-content;
+  gap: 10px;
+  margin-top: 1%;
+  div {
+    img {
+      margin-right: 5px;
+    }
+  }
+  p {
+    font-size: 32px;
+    @include headers-font;
+  }
+  span {
+    font-size: 32px;
+    color: $main-violet;
+    @include text-font;
+  }
+}
+.section2Mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: min-content;
+  p {
+    text-align: center;
+    font-size: 20px;
+    @include headers-font;
+  }
+}

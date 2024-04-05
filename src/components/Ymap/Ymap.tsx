@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { ICoordinates } from "@/models/ICoordinates";
+import { getRandomInt } from "@/utils/GetRandomInt";
 
 interface YmapProps {
   array: ICoordinates[];
@@ -15,7 +16,7 @@ const Ymap: FC<YmapProps> = ({ array }) => {
       >
         {array.map((item) => (
           <Placemark
-            key={Date.now()}
+            key={getRandomInt(1000)}
             modules={["geoObject.addon.balloon"]}
             options={{ iconColor: item.color }}
             properties={{ balloonContentBody: item.description }}

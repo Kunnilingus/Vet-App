@@ -46,3 +46,45 @@
   font-size: 24px;
   @include headers-font;
 }
+
+//Mobile
+
+.containerMobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 32px;
+    @include headers-font;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 10px;
+  }
+  ul {
+    font-size: 24px;
+    @include text-font;
+    li {
+      list-style: circle;
+    }
+    margin-left: 40px;
+  }
+  h1 {
+    margin-top: 100px;
+    font-size: 40px;
+    margin-bottom: 50px;
+    margin-left: -40px;
+    @include headers-font;
+  }
+}
+
+.infoMobile {
+  margin-top: 50px;
+  font-size: 24px;
+  @include text-font;
+}
+
+.workMobile {
+  font-size: 24px;
+  margin-left: 10px;
+  @include headers-font;
+}

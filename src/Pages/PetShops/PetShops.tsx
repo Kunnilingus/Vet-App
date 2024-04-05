@@ -5,13 +5,19 @@ import styles from "./petShops.module.scss";
 import petShop from "@/Assets/зоомагазин.jpg";
 import Ymap from "@/components/Ymap/Ymap";
 import { petShopsCoordinates } from "@/utils/PetShopsCoordinates";
+import { useMediaQuery } from "react-responsive";
+import HeaderMobile from "@/components/HeaderMobile/HeaderMobile";
 
 const PetShops: FC = () => {
+  const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1439px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   return (
     <div>
-      <Header />
-      <div className={styles.container}>
-        <div className={styles.petShopList}>
+      {isDesktop ? <Header /> : <HeaderMobile />}
+      <div className={isDesktop ? styles.container : styles.containerMobile}>
+        <div
+          className={isDesktop ? styles.petShopList : styles.petShopListMobile}
+        >
           <h1>Зоомагазины</h1>
           <ul>
             <li>
@@ -35,15 +41,17 @@ const PetShops: FC = () => {
               метро: Сухаревская
             </li>
           </ul>
-          <div className={styles.map}>
+          <div className={isDesktop ? styles.map : styles.mapMobile}>
             <Ymap array={petShopsCoordinates} />
           </div>
         </div>
-        <div className={styles.petShopImg}>
+        <div
+          className={isDesktop ? styles.petShopImg : styles.petShopImgMobile}
+        >
           <img src={petShop} alt="clinics" />
         </div>
       </div>
-      <Footer />
+      <Footer isDesktop={isDesktop} isMobile={isMobileOrTablet} />
     </div>
   );
 };

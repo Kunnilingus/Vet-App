@@ -9,8 +9,9 @@ import { deleteMeeting } from "@/store/slices/meetingSlice";
 
 interface MeetingsProps {
   user: IUser;
+  isDesktop?: boolean;
 }
-const Meetings: FC<MeetingsProps> = ({ user }) => {
+const Meetings: FC<MeetingsProps> = ({ user, isDesktop }) => {
   const { meeting } = useAppSelector((state) => state.meetings);
   const currentUserMeets = meeting.filter((item) => item.id === user.id);
   const dispatch = useAppDispatch();
@@ -20,9 +21,9 @@ const Meetings: FC<MeetingsProps> = ({ user }) => {
     dispatch(deleteMeeting(index));
   };
   return (
-    <div className={styles.cards}>
+    <div className={isDesktop ? styles.cards : styles.cardsMobile}>
       {currentUserMeets.map((item) => (
-        <div key={getRandomInt(1000)} className={styles.card}>
+        <div key={getRandomInt(1000)} className={styles.meetCard}>
           <p>На приём идёт: {item.name}</p>
           <p>Дата приёма: {item.date}</p>
           <p>Жалобы на: {item.complaints}</p>

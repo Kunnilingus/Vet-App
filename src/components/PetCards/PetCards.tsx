@@ -22,8 +22,9 @@ import { getRandomInt } from "@/utils/GetRandomInt";
 interface PetCardsProps {
   value: string;
   user: IUser;
+  isDesktop?: boolean;
 }
-const PetCards: FC<PetCardsProps> = ({ value, user }) => {
+const PetCards: FC<PetCardsProps> = ({ value, user, isDesktop }) => {
   const { dogs, cats, rodents, birds, reptiles, exots } = useAppSelector(
     (state) => state.pets
   );
@@ -67,9 +68,9 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
     dispatch(deleteExot(index));
   };
   switch (value) {
-    case "dogs":
+    case "dogs": 
       return (
-        <div className={styles.cards}>
+        <div className={isDesktop ? styles.cards : styles.cardsMobile}>
           {currentDog.map((item) => (
             <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
@@ -97,7 +98,7 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       break;
     case "cats":
       return (
-        <div className={styles.cards}>
+        <div className={isDesktop ? styles.cards : styles.cardsMobile}>
           {currentCat.map((item) => (
             <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
@@ -125,7 +126,7 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       break;
     case "rodents":
       return (
-        <div className={styles.cards}>
+        <div className={isDesktop ? styles.cards : styles.cardsMobile}>
           {currentRodent.map((item) => (
             <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
@@ -150,7 +151,7 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       break;
     case "birds":
       return (
-        <div className={styles.cards}>
+        <div className={isDesktop ? styles.cards : styles.cardsMobile}>
           {currentBird.map((item) => (
             <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
@@ -175,7 +176,7 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       break;
     case "reptiles":
       return (
-        <div className={styles.cards}>
+        <div className={isDesktop ? styles.cards : styles.cardsMobile}>
           {currentReptile.map((item) => (
             <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>
@@ -202,7 +203,7 @@ const PetCards: FC<PetCardsProps> = ({ value, user }) => {
       break;
     case "exots":
       return (
-        <div className={styles.cards}>
+        <div className={isDesktop ? styles.cards : styles.cardsMobile}>
           {currentExot.map((item) => (
             <div key={getRandomInt(1000)} className={styles.card}>
               <p>Кличка: {item.name}</p>

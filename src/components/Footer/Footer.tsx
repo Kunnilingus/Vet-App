@@ -7,10 +7,14 @@ import vk from "@/Assets/vk.png";
 import visa from "@/Assets/visa.png";
 import mastercard from "@/Assets/mastercard.png";
 
-const Footer: FC = () => {
+interface FooterProps {
+  isDesktop?: boolean;
+  isMobile?: boolean;
+}
+const Footer: FC<FooterProps> = ({ isDesktop, isMobile }) => {
   return (
-    <div className={styles.footer}>
-      <div className={styles.section1}>
+    <div className={isDesktop ? styles.footer : styles.footerMobile}>
+      <div className={isDesktop ? styles.section1 : styles.section1Mobile}>
         <div>
           <img src={twitter} alt="twitter" />
           <img src={insta} alt="instagram" />
@@ -20,7 +24,7 @@ const Footer: FC = () => {
         <p>Pochta@gaymail.ua</p>
         <span>#мылюбимживотных</span>
       </div>
-      <div className={styles.section2}>
+      <div className={isDesktop ? styles.section2 : styles.section2Mobile}>
         <div>
           <img src={visa} alt="visa" />
           <img src={mastercard} alt="mastercard" />

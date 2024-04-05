@@ -5,13 +5,19 @@ import styles from "./clinics.module.scss";
 import clinics from "@/Assets/Клиники.png";
 import Ymap from "@/components/Ymap/Ymap";
 import { clinicsCoordinates } from "@/utils/ClinicsCoordinates";
+import { useMediaQuery } from "react-responsive";
+import HeaderMobile from "@/components/HeaderMobile/HeaderMobile";
 
 const Clinics: FC = () => {
+  const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1439px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   return (
     <div>
-      <Header />
-      <div className={styles.container}>
-        <div className={styles.clinicsList}>
+      {isDesktop ? <Header /> : <HeaderMobile />}
+      <div className={isDesktop ? styles.container : styles.containerMobile}>
+        <div
+          className={isDesktop ? styles.clinicsList : styles.clinicsListMobile}
+        >
           <h1>Клиники</h1>
           <h2>
             Все наши клиники расположены рядом с метро и остановками
@@ -35,12 +41,14 @@ const Clinics: FC = () => {
             <Ymap array={clinicsCoordinates} />
           </div>
         </div>
-        <div className={styles.clinicsImg}>
+        <div
+          className={isDesktop ? styles.clinicsImg : styles.clinicsImgMobile}
+        >
           <img src={clinics} alt="clinics" />
         </div>
       </div>
 
-      <Footer />
+      <Footer isDesktop={isDesktop} isMobile={isMobileOrTablet} />
     </div>
   );
 };

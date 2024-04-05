@@ -4,25 +4,29 @@ import { useAppDispatch, useAppSelector } from "@/hooks";
 import { show } from "@/store/slices/modalsSlice";
 import { useAuth } from "@/hooks/useAuth";
 
-const CallForm: FC = () => {
+interface CallFormProps {
+  isMobile?: boolean;
+  isDesktop?: boolean;
+}
+const CallForm: FC<CallFormProps> = ({ isDesktop, isMobile }) => {
   const dispatch = useAppDispatch();
   const { isAuth, id } = useAuth();
   const { users } = useAppSelector((state) => state.userInfo);
   const userInfo = users.find((item) => item.id === id);
   return (
-    <div className={styles.callForm}>
-      <div className={styles.header}>
+    <div className={isDesktop ? styles.callForm : styles.callFormMobile}>
+      <div className={isDesktop ? styles.header : styles.headerMobile}>
         Оставьте заявку и мы свяжемся с Вами для
         <br /> подтверждения записи
       </div>
       <input
-        value={isAuth ? userInfo.name : ""}
+        defaultValue={isAuth ? userInfo.name : ""}
         type="text"
         placeholder="Имя"
         required
       />
       <input
-        value={isAuth ? userInfo.number : ""}
+        defaultValue={isAuth ? userInfo.number : ""}
         type="text"
         placeholder="+_()_ _ _-_ _-_ _"
         required

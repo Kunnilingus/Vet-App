@@ -4,19 +4,25 @@ import Header from "@/components/Header/Header";
 import styles from "./contacts.module.scss";
 import CallForm from "@/components/CallForm/CallForm";
 import CallAply from "@/components/CallAply/CallAply";
+import { useMediaQuery } from "react-responsive";
+import HeaderMobile from "@/components/HeaderMobile/HeaderMobile";
 
 const Contacts: FC = () => {
+  const isMobileOrTablet = useMediaQuery({ query: "(max-width: 1439px)" });
+  const isDesktop = useMediaQuery({ query: "(min-width: 1440px)" });
   return (
     <div>
-      <Header />
-      <div className={styles.container}>
+      {isDesktop ? <Header /> : <HeaderMobile />}
+      <div className={isDesktop ? styles.container : styles.containerMobile}>
         <h1>Контакты</h1>
         <p className={styles.number}>
           +8(800) 555-35-35
           <br /> время работы филиалов с 10:00 до 22:00
         </p>
-        <CallForm />
-        <p className={styles.info}>Реквизиты организации</p>
+        <CallForm isDesktop={isDesktop} isMobile={isMobileOrTablet} />
+        <p className={isDesktop ? styles.info : styles.infoMobile}>
+          Реквизиты организации
+        </p>
         <ul>
           <li>ИП Зубенко Михаил Петрович “Мафиозник”</li>
           <li>ИНН 772880897206</li>
@@ -31,7 +37,7 @@ const Contacts: FC = () => {
           <li>БИК банка 044525974</li>
         </ul>
         <h2>Вас так же может заинтересовать наша вакансия:</h2>
-        <div className={styles.work}>
+        <div className={isDesktop ? styles.work : styles.workMobile}>
           ВАКАНСИЯ — ВЕТЕРИНАРНОГО ВРАЧА в сети ветклиник «Сутулый Пёс» Сеть
           ветеринарных клиник «Сутулый Пёс», в связи с открытием новых филиалов,
           приглашает специалистов стать частью нашего коллектива.Для работы в
@@ -80,7 +86,7 @@ const Contacts: FC = () => {
         </div>
       </div>
       <CallAply />
-      <Footer />
+      <Footer isDesktop={isDesktop} isMobile={isMobileOrTablet} />
     </div>
   );
 };
